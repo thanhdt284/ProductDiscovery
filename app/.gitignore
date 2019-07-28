@@ -1,0 +1,5 @@
+/build
+*.iml
+/dev/
+/prod/
+/.externalNativeBuild/
