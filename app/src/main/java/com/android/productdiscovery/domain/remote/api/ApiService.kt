@@ -1,5 +1,6 @@
 package com.android.productdiscovery.domain.remote.api
 
+import com.android.productdiscovery.domain.remote.pojo.response.DetailResponse
 import com.android.productdiscovery.domain.remote.pojo.response.ListingResponse
 import io.reactivex.Observable
 import retrofit2.http.GET
@@ -22,6 +23,6 @@ interface ApiService {
                       @Query("terminal") terminal: String = "CP01"): Observable<ListingResponse>
 
     @GET("products/{sku}")
-    fun getProductDetail(@Path("sku") sku: String = "")
+    fun getProductDetail(@Path("sku") sku: String = ""): Observable<DetailResponse>
 
 }

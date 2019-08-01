@@ -3,7 +3,6 @@ package com.android.productdiscovery.ui.base
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import com.android.productdiscovery.utils.extension.hideKeyboard
-import org.greenrobot.eventbus.EventBus
 
 /**
  * @author Steve

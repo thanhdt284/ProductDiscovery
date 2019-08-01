@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.productdiscovery.R
 import com.android.productdiscovery.ui.base.BaseFragment
+import com.android.productdiscovery.ui.detail.DetailActivity
 import com.android.productdiscovery.utils.extension.adjustTopMargin
 import com.android.productdiscovery.utils.extension.hideKeyboard
 import com.android.productdiscovery.utils.extension.obtainViewModel
@@ -28,7 +29,11 @@ class ListingFragment : BaseFragment() {
 
     private var isLoadMore = false
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_listing, container, false)
     }
 
@@ -54,7 +59,12 @@ class ListingFragment : BaseFragment() {
             })
 
             pageData.observe(this@ListingFragment, Observer {
+                if (isLoadMore) {
+                    listingAdapter?.removeLoadingView()
+                    isLoadMore = false
+                }
 
+                listingAdapter?.addData(it)
             })
 
             loadingStatus.observe(this@ListingFragment, Observer {
@@ -67,6 +77,8 @@ class ListingFragment : BaseFragment() {
         adjustTopMargin(btnBack)
         initProductList()
         initSearchListener()
+
+        btnBack.setOnClickListener { requireActivity().onBackPressed() }
     }
 
     private fun initSearchListener() {
@@ -87,7 +99,10 @@ class ListingFragment : BaseFragment() {
     }
 
     private fun initProductList() {
-        listingAdapter = ListingAdapter()
+        listingAdapter = ListingAdapter(selectAction = { product ->
+            DetailActivity.startActivity(requireContext(), product.sku)
+        })
+
         rvListing.apply {
             adapter = listingAdapter
             layoutManager = LinearLayoutManager(requireContext())
@@ -97,7 +112,8 @@ class ListingFragment : BaseFragment() {
                     if (dy > 0) {
                         recyclerView.adapter?.let {
                             val totalItemCount = it.itemCount
-                            val lastItemIndex = (recyclerView.layoutManager as LinearLayoutManager).findLastVisibleItemPosition()
+                            val lastItemIndex =
+                                (recyclerView.layoutManager as LinearLayoutManager).findLastVisibleItemPosition()
                             if (lastItemIndex > totalItemCount - 8 && !isLoadMore) {
                                 isLoadMore = true
                                 listingAdapter?.addLoadingView()

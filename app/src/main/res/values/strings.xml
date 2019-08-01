@@ -11,5 +11,9 @@
     <string name="same_type_product">Sản phẩm cùng loại</string>
     <string name="connection_fail_toast">Không có kết nối mạng, Vui lòng thử lại</string>
     <string name="input_name_product_code_to_search">Nhập tên, mã sản phẩm để tìm kiếm</string>
+    <string name="stop_selling">Ngừng kinh doanh</string>
+    <string name="out_of_stock">Tạm hết</string>
+    <string name="sample">Hàng trưng bày</string>
+    <string name="invalid_sku">Mã sản phẩm không tồn tại</string>
 
 </resources>

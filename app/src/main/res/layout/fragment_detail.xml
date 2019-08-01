@@ -23,7 +23,7 @@
         android:scaleType="centerInside"
         android:src="@drawable/ic_cart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/btnBack" />
 
     <TextView
         android:id="@+id/tvCartCount"
@@ -131,7 +131,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/bg_tomato_gradient"
+        android:background="@drawable/bg_tomato_gradient_corner_8"
         android:fontFamily="@font/sfpro_text_semibold"
         android:gravity="center|end"
         android:maxLines="1"
@@ -171,10 +171,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <androidx.viewpager.widget.ViewPager
+            <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/vpProductImage"
                 android:layout_width="match_parent"
                 android:layout_height="327dp"
+                android:orientation="horizontal"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <me.relex.circleindicator.CircleIndicator

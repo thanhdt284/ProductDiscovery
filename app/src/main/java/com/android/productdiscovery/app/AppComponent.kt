@@ -4,6 +4,7 @@ import android.app.Application
 import com.android.productdiscovery.data.manager.PreferenceModule
 import com.android.productdiscovery.domain.remote.api.ApiModule
 import com.android.productdiscovery.domain.remote.api.ApiService
+import com.android.productdiscovery.ui.detail.DetailViewModel
 import com.android.productdiscovery.ui.listing.ListingViewModel
 import dagger.Component
 import java.util.logging.LogManager
@@ -33,5 +34,6 @@ interface AppComponent {
     fun inject(app: App)
 
     fun inject(viewModel: ListingViewModel)
+    fun inject(viewModel: DetailViewModel)
 
 }
