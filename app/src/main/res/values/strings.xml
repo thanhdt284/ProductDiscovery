@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">Product Discovery</string>
-    <string name="error_default">An error occurs</string>
+    <string name="error_default">Có lỗi xảy ra!</string>
+    <string name="message_processing">Đang xử lý</string>
+    <string name="input_name_product_code">Nhập tên, mã sản phẩm</string>
+    <string name="format_discount_percent">-%d%%</string>
+    <string name="product_code">Mã SP:</string>
+    <string name="product_description">Mô tả sản phẩm</string>
+    <string name="technical_spec">Thông số kỹ thuật</string>
+    <string name="price_comparison">So sánh giá</string>
+    <string name="same_type_product">Sản phẩm cùng loại</string>
+    <string name="connection_fail_toast">Không có kết nối mạng, Vui lòng thử lại</string>
+    <string name="input_name_product_code_to_search">Nhập tên, mã sản phẩm để tìm kiếm</string>
+
 </resources>

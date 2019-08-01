@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/vToolBarBg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_tomato_gradient"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_white_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vToolBarBg"
+        app:layout_constraintTop_toTopOf="@+id/vToolBarBg" />
+
+    <EditText
+        android:id="@+id/edtSearch"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:background="@drawable/bg_rounded_white"
+        android:fontFamily="@font/sfpro_text_regular"
+        android:hint="@string/input_name_product_code"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:paddingStart="40dp"
+        android:paddingLeft="40dp"
+        android:textColorHint="@color/coolGrey"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnBack"
+        app:layout_constraintTop_toTopOf="@+id/btnBack"
+        tools:ignore="Autofill,LabelFor,RtlSymmetry" />
+
+    <ImageView
+        android:id="@+id/ivSearch"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_search"
+        app:layout_constraintBottom_toBottomOf="@+id/edtSearch"
+        app:layout_constraintStart_toStartOf="@id/edtSearch"
+        app:layout_constraintTop_toTopOf="@+id/edtSearch" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvListing"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vToolBarBg"
+        tools:listitem="@layout/item_listing_layout" />
+
+<!--    <ProgressBar-->
+<!--        android:id="@+id/pbLoading"-->
+<!--        android:layout_width="30dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:layout_marginBottom="30dp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:contentDescription="@null"-->
+<!--        android:indeterminate="true"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

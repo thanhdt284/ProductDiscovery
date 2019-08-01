@@ -12,9 +12,9 @@ class ViewModelFactory(private val application: App) : ViewModelProvider.NewInst
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         val t: T = super.create(modelClass)
-//        if (t is AppComponent.Injectable) {
-//            (t as AppComponent.Injectable).inject(application.appComponent)
-//        }
+        if (t is AppComponent.Injectable) {
+            (t as AppComponent.Injectable).inject(application.appComponent)
+        }
 
         return t
     }

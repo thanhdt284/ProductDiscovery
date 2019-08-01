@@ -134,6 +134,6 @@ class ApiModule {
 
     companion object {
         const val TIME_OUT: Long = 30
-        const val BASE_URL = "https://listing-stg.teko.vn/api/"
+        const val BASE_URL = "https://listing-stg.services.teko.vn/api/"
     }
 }

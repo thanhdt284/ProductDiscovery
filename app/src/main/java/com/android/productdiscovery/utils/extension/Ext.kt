@@ -16,12 +16,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.android.productdiscovery.app.App
 import com.android.productdiscovery.app.ViewModelFactory
+import com.android.productdiscovery.domain.remote.pojo.response.Error
 import com.android.productdiscovery.utils.DisplayUtils
+import com.android.productdiscovery.utils.RetrofitDisposable
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 /**
@@ -32,8 +35,16 @@ fun Fragment.showToast(@StringRes resId: Int) {
     Toast.makeText(activity, resId, Toast.LENGTH_SHORT).show()
 }
 
+fun Fragment.showToast(message: String) {
+    Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+}
+
 fun Context.toast(@StringRes resId: Int) {
     Toast.makeText(this, resId, Toast.LENGTH_SHORT).show()
+}
+
+fun Context.toast(message: String) {
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }
 
 /**
@@ -133,6 +144,33 @@ fun String.isEmail(): Boolean {
     }
 }
 
+/**
+ * Extension function that helps to use lambda expression for retrofit disposable using higher-order
+ * function
+ */
+fun <T> Observable<T>.subscribeWith(onNext: (t: T) -> Unit,
+                                    onHttpError: (error: Error) -> Unit = {},
+                                    onNetworkError: (throwable: Throwable) -> Unit = {},
+                                    doOnError: () -> Unit = {}): Disposable {
+
+    return subscribeWith(object : RetrofitDisposable<T>() {
+        override fun onNext(t: T) {
+            onNext(t)
+        }
+
+        override fun onHttpError(error: Error) {
+            onHttpError(error)
+        }
+
+        override fun onNetworkError(e: Throwable) {
+            onNetworkError(e)
+        }
+
+        override fun doOnError() {
+            doOnError()
+        }
+    })
+}
 
 fun <T> Observable<T>.observeOnMain(): Observable<T> {
     return this.subscribeOn(Schedulers.io())

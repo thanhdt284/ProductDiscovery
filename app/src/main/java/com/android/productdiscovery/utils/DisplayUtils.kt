@@ -25,7 +25,7 @@ import java.util.regex.Pattern
 
 /**
  * @author ThanhDT
- * @since 4/19/18
+ * @since 2019-07-28
  */
 object DisplayUtils {
 

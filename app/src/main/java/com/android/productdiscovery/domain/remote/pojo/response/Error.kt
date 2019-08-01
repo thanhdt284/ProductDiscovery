@@ -1,6 +1,7 @@
 package com.android.productdiscovery.domain.remote.pojo.response
 
 import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
 
 /**
  * @author ThanhDT
@@ -10,8 +11,10 @@ import com.google.gson.annotations.Expose
 class Error {
 
     @Expose
-    var code: Int = 20001
+    @SerializedName("code")
+    var code: String = ""
 
     @Expose
-    var message: String? = null
+    @SerializedName("massage")
+    var message: String = ""
 }

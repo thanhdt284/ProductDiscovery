@@ -13,7 +13,7 @@ import timber.log.Timber
  */
 class App : MultiDexApplication() {
 
-//    lateinit var appComponent: AppComponent
+    lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
@@ -40,11 +40,11 @@ class App : MultiDexApplication() {
 
     fun initDependency() {
         Timber.e("App initDependency")
-//        appComponent = DaggerAppComponent.builder()
-//                .appModule(AppModule(this))
-//                .build()
-//
-//        appComponent.inject(this)
+        appComponent = DaggerAppComponent.builder()
+                .appModule(AppModule(this))
+                .build()
+
+        appComponent.inject(this)
     }
 
     private fun initStetho() {

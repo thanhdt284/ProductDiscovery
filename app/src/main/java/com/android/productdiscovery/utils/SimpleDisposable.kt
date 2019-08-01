@@ -4,7 +4,7 @@ import io.reactivex.observers.DisposableObserver
 
 /**
  * @author ThanhDT
- * @since 4/17/18
+ * @since 2019-07-28
  */
 open class SimpleDisposable<T> : DisposableObserver<T>() {
 

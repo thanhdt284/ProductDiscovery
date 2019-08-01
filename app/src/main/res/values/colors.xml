@@ -2,5 +2,18 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="deepSkyBlue">#1e75f6</color>
+    <color name="pumpkinOrange">#f58400</color>
+    <color name="coolGrey">#8f9598</color>
+    <color name="black30">#4D000000</color>
+    <color name="white">#ffffff</color>
+    <color name="reddishOrange">#f5471e</color>
+    <color name="darkGrey">#262829</color>
+    <color name="tomatoTwo">#df2020</color>
+    <color name="paleGrey">#eef1f3</color>
+    <color name="tomato">#ea341f</color>
+
 </resources>

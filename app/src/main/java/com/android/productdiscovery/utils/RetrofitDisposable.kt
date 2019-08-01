@@ -1,15 +1,13 @@
 package com.android.productdiscovery.utils
 
-import com.android.productdiscovery.domain.remote.pojo.response.HttpError
 import com.android.productdiscovery.domain.remote.pojo.response.Error
 import com.google.gson.Gson
-import com.android.productdiscovery.domain.remote.api.ApiErrorCode
 import retrofit2.HttpException
 import retrofit2.Response
 
 /**
  * @author ThanhDT
- * @since 4/17/18
+ * @since 2019-07-28
  */
 open class RetrofitDisposable<T> : SimpleDisposable<T>() {
 
@@ -22,14 +20,18 @@ open class RetrofitDisposable<T> : SimpleDisposable<T>() {
      * method to handle [Error] response
      */
     final override fun onError(e: Throwable) {
-        if (e is HttpException) {
-            val error = parseError(e.response())
+        doOnError()
 
-            onHttpError(HttpError(error.code, ApiErrorCode.parseMsg(error.code)))
+        if (e is HttpException) {
+            onHttpError(parseError(e.response()))
             return
         }
 
         onNetworkError(e)
+    }
+
+    open fun doOnError() {
+
     }
 
     override fun onNext(t: T) {
@@ -39,7 +41,7 @@ open class RetrofitDisposable<T> : SimpleDisposable<T>() {
     /**
      * Callback for handling Http response error (statusCode >= 400)
      */
-    open fun onHttpError(httpError: HttpError) {
+    open fun onHttpError(error: Error) {
 
     }
 

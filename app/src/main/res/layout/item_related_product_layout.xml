@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="162dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivProduct"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_item_placeholder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/sfpro_text_regular"
+        android:maxLines="1"
+        android:textColor="@color/darkGrey"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/ivProduct"
+        app:layout_constraintStart_toStartOf="@+id/ivProduct"
+        app:layout_constraintTop_toBottomOf="@+id/ivProduct"
+        tools:text="Màn hình LCD 31.5" />
+
+    <TextView
+        android:id="@+id/tvSellPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/sfpro_text_semibold"
+        android:textColor="@color/tomato"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/ivProduct"
+        app:layout_constraintStart_toStartOf="@+id/ivProduct"
+        app:layout_constraintTop_toBottomOf="@+id/tvProductName"
+        tools:text="8.790.000 đ" />
+
+    <TextView
+        android:id="@+id/tvProviderPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/sfpro_text_regular"
+        android:textColor="@color/coolGrey"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ivProduct"
+        app:layout_constraintTop_toBottomOf="@+id/tvSellPrice"
+        tools:text="10.970.000" />
+
+    <TextView
+        android:id="@+id/tvDiscount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:background="@drawable/ic_tag"
+        android:fontFamily="@font/sfpro_text_regular"
+        android:paddingStart="4dp"
+        android:paddingLeft="4dp"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvProviderPrice"
+        app:layout_constraintStart_toEndOf="@+id/tvProviderPrice"
+        app:layout_constraintTop_toTopOf="@+id/tvProviderPrice"
+        tools:ignore="RtlSymmetry,SmallSp"
+        tools:text="-20%" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

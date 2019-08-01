@@ -79,7 +79,9 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
     implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
 
-    def okhttpVersion = "3.8.1"
-    implementation "com.squareup.okhttp3:okhttp:${okhttpVersion}"
-    implementation "com.squareup.okhttp3:logging-interceptor:${okhttpVersion}"
+    def okHttpVersion = "3.8.1"
+    implementation "com.squareup.okhttp3:okhttp:${okHttpVersion}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}"
+
+    implementation 'me.relex:circleindicator:1.2.2@aar'
 }

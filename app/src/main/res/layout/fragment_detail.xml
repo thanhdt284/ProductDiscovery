@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_black_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivCart"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_cart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCartCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/bg_rounded_pumpkin_orange"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/ivCart"
+        app:layout_constraintTop_toTopOf="@+id/ivCart"
+        tools:ignore="SmallSp"
+        tools:text="2" />
+
+    <TextView
+        android:id="@+id/tvTitleName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/sfpro_text_semibold"
+        android:maxLines="1"
+        android:textColor="@color/darkGrey"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvTitlePrice"
+        app:layout_constraintEnd_toStartOf="@+id/ivCart"
+        app:layout_constraintStart_toEndOf="@+id/btnBack"
+        app:layout_constraintTop_toTopOf="@+id/btnBack"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Bộ vi xử lý/ CPU Core I7-7800X (3.50 GHz)" />
+
+    <TextView
+        android:id="@+id/tvTitlePrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sfpro_text_semibold"
+        android:textColor="@color/tomato"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+        app:layout_constraintEnd_toStartOf="@+id/ivCart"
+        app:layout_constraintStart_toEndOf="@+id/btnBack"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleName"
+        tools:text="10.420.000 đ" />
+
+    <View
+        android:id="@+id/vAddCartBg"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivMinus"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_circle_minus"
+        app:layout_constraintBottom_toBottomOf="@+id/vAddCartBg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/vAddCartBg" />
+
+    <ImageView
+        android:id="@+id/ivPlus"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_circle_add"
+        app:layout_constraintBottom_toBottomOf="@+id/vAddCartBg"
+        app:layout_constraintStart_toEndOf="@+id/ivMinus"
+        app:layout_constraintTop_toTopOf="@+id/vAddCartBg" />
+
+    <TextView
+        android:id="@+id/tvBuyCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sfpro_text_regular"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/darkGrey"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/vAddCartBg"
+        app:layout_constraintEnd_toStartOf="@+id/ivPlus"
+        app:layout_constraintStart_toEndOf="@+id/ivMinus"
+        app:layout_constraintTop_toTopOf="@+id/vAddCartBg"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/tvTotalPrice"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_tomato_gradient"
+        android:fontFamily="@font/sfpro_text_semibold"
+        android:gravity="center|end"
+        android:maxLines="1"
+        android:paddingStart="54dp"
+        android:paddingLeft="54dp"
+        android:paddingEnd="16dp"
+        android:paddingRight="16dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/vAddCartBg"
+        app:layout_constraintEnd_toEndOf="@+id/vAddCartBg"
+        app:layout_constraintStart_toEndOf="@+id/ivPlus"
+        app:layout_constraintTop_toTopOf="@+id/vAddCartBg"
+        tools:ignore="RtlSymmetry"
+        tools:text="20.840.000 đ" />
+
+    <ImageView
+        android:id="@+id/ivAddToCart"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_add_to_cart"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTotalPrice"
+        app:layout_constraintStart_toStartOf="@+id/tvTotalPrice"
+        app:layout_constraintTop_toTopOf="@+id/tvTotalPrice" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/svContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/vAddCartBg"
+        app:layout_constraintTop_toBottomOf="@+id/btnBack">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/vpProductImage"
+                android:layout_width="match_parent"
+                android:layout_height="327dp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <me.relex.circleindicator.CircleIndicator
+                android:id="@+id/indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                app:ci_animator="@animator/indicator_no_animator"
+                app:ci_drawable="@drawable/selected_indicator"
+                app:ci_drawable_unselected="@drawable/unselected_indicator"
+                app:ci_height="8dp"
+                app:ci_width="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vpProductImage" />
+
+            <View
+                android:id="@+id/vProductImageDivider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/paleGrey"
+                app:layout_constraintTop_toBottomOf="@+id/indicator" />
+
+            <TextView
+                android:id="@+id/tvProductName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sfpro_text_semibold"
+                android:paddingStart="12dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="12dp"
+                android:textColor="@color/darkGrey"
+                android:textSize="17sp"
+                app:layout_constraintTop_toBottomOf="@+id/vProductImageDivider"
+                tools:text="Bộ vi xử lý/ CPU Core I7-7800X (3.50 GHz)" />
+
+            <TextView
+                android:id="@+id/lblProductCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sfpro_text_regular"
+                android:paddingStart="12dp"
+                android:paddingLeft="12dp"
+                android:paddingTop="4dp"
+                android:text="@string/product_code"
+                android:textColor="@color/coolGrey"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/tvProductName"
+                app:layout_constraintTop_toBottomOf="@+id/tvProductName"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/tvProductCode"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:fontFamily="@font/sfpro_text_regular"
+                android:paddingStart="4dp"
+                android:paddingLeft="4dp"
+                android:paddingTop="4dp"
+                android:textColor="@color/deepSkyBlue"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/lblProductCode"
+                app:layout_constraintStart_toEndOf="@+id/lblProductCode"
+                app:layout_constraintTop_toTopOf="@+id/lblProductCode"
+                tools:ignore="RtlSymmetry"
+                tools:text="9187691276" />
+
+            <TextView
+                android:id="@+id/tvProductStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_rounded_pale_grey_corner_8"
+                android:fontFamily="@font/sfpro_text_regular"
+                android:paddingStart="8dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="3dp"
+                android:textColor="@color/coolGrey"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblProductCode"
+                tools:text="Tạm hết hàng" />
+
+            <TextView
+                android:id="@+id/tvSellPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/sfpro_text_semibold"
+                android:textColor="@color/tomato"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvProductStatus"
+                tools:text="10.420.000 đ" />
+
+            <TextView
+                android:id="@+id/tvProviderPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:fontFamily="@font/sfpro_text_regular"
+                android:textColor="@color/coolGrey"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvSellPrice"
+                app:layout_constraintStart_toEndOf="@+id/tvSellPrice"
+                app:layout_constraintTop_toTopOf="@+id/tvSellPrice"
+                tools:text="12.970.000" />
+
+            <TextView
+                android:id="@+id/tvDiscount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:background="@drawable/ic_tag"
+                android:paddingStart="7dp"
+                android:paddingLeft="7dp"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvSellPrice"
+                app:layout_constraintStart_toEndOf="@+id/tvProviderPrice"
+                app:layout_constraintTop_toTopOf="@+id/tvSellPrice"
+                tools:ignore="RtlSymmetry,SmallSp"
+                tools:text="-20%" />
+
+            <View
+                android:id="@+id/vInfoDivider"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/paleGrey"
+                app:layout_constraintTop_toBottomOf="@+id/tvSellPrice" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tlDetail"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                app:layout_constraintTop_toBottomOf="@+id/vInfoDivider"
+                app:tabIndicatorColor="@color/tomatoTwo"
+                app:tabSelectedTextColor="@color/darkGrey"
+                app:tabTextAppearance="@style/tabTextStyle"
+                app:tabTextColor="@color/coolGrey">
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tabDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/product_description" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tabTechnicalSpec"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/technical_spec" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tabPriceComparison"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/price_comparison" />
+            </com.google.android.material.tabs.TabLayout>
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/vpProductDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tlDetail" />
+
+            <View
+                android:id="@+id/vDetailDivider"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="@color/paleGrey"
+                app:layout_constraintTop_toBottomOf="@+id/vpProductDetail" />
+
+            <TextView
+                android:id="@+id/lblRelatedProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sfpro_text_regular"
+                android:paddingStart="12dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="12dp"
+                android:text="@string/same_type_product"
+                android:textColor="@color/coolGrey"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vDetailDivider" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRelatedProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/lblRelatedProduct"
+                tools:listitem="@layout/item_related_product_layout" />
+
+            <View
+                android:id="@+id/vRelatedDivider"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="@color/paleGrey"
+                app:layout_constraintTop_toBottomOf="@+id/rvRelatedProduct" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
