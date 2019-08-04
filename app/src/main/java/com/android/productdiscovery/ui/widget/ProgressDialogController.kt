@@ -31,6 +31,7 @@ constructor(private val fragmentManager: FragmentManager) {
     }
 
     fun finishProgress() {
-        if (!progressFragment.isDetached && !progressFragment.isStateSaved) progressFragment.dismiss()
+        if (!progressFragment.isDetached && !progressFragment.isStateSaved && progressFragment.isAdded)
+            progressFragment.dismiss()
     }
 }

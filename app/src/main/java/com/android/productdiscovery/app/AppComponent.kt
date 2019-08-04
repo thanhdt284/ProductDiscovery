@@ -4,6 +4,8 @@ import android.app.Application
 import com.android.productdiscovery.data.manager.PreferenceModule
 import com.android.productdiscovery.domain.remote.api.ApiModule
 import com.android.productdiscovery.domain.remote.api.ApiService
+import com.android.productdiscovery.domain.repository.ProductRepo
+import com.android.productdiscovery.domain.repository.RepositoryModule
 import com.android.productdiscovery.ui.detail.DetailViewModel
 import com.android.productdiscovery.ui.listing.ListingViewModel
 import dagger.Component
@@ -17,15 +19,19 @@ import javax.inject.Singleton
  */
 
 @Singleton
-@Component(modules = [
-    AppModule::class,
-    ApiModule::class,
-    PreferenceModule::class
-])
+@Component(
+    modules = [
+        AppModule::class,
+        ApiModule::class,
+        PreferenceModule::class,
+        RepositoryModule::class
+    ]
+)
 interface AppComponent {
 
     fun application(): Application
     fun apiService(): ApiService
+    fun productRepo(): ProductRepo
 
     interface Injectable {
         fun inject(appComponent: AppComponent)

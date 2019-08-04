@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ctnRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSpec"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="12dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="12dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_spec_layout" />
+
+    <View
+        android:id="@+id/vOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignBottom="@+id/rvSpec"
+        android:background="@drawable/bg_gradient_white"
+        app:layout_constraintBottom_toBottomOf="@+id/rvSpec" />
+
+    <View
+        android:id="@+id/vShowMore"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_below="@+id/rvSpec"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/rvSpec" />
+
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:id="@+id/ctnShowMore"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_below="@+id/tvDescription"-->
+    <!--        android:layout_height="42dp">-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/tvShowMore"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:fontFamily="@font/sfpro_text_regular"-->
+    <!--            android:text="@string/display_more"-->
+    <!--            android:textColor="@color/deepSkyBlue"-->
+    <!--            android:textSize="13sp"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toStartOf="@+id/ivArrow"-->
+    <!--            app:layout_constraintHorizontal_chainStyle="packed"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/ivArrow"-->
+    <!--            android:layout_width="16dp"-->
+    <!--            android:layout_height="16dp"-->
+    <!--            android:contentDescription="@null"-->
+    <!--            android:scaleType="centerInside"-->
+    <!--            android:src="@drawable/ic_down_arrow"-->
+    <!--            app:layout_constraintBottom_toBottomOf="@+id/tvShowMore"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toEndOf="@+id/tvShowMore"-->
+    <!--            app:layout_constraintTop_toTopOf="@+id/tvShowMore" />-->
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <TextView
+        android:id="@+id/tvShowMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sfpro_text_regular"
+        android:text="@string/display_more"
+        android:textColor="@color/deepSkyBlue"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/vShowMore"
+        app:layout_constraintEnd_toStartOf="@+id/ivArrow"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/vShowMore"
+        app:layout_constraintTop_toTopOf="@+id/vShowMore" />
+
+    <ImageView
+        android:id="@+id/ivArrow"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_down_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/tvShowMore"
+        app:layout_constraintEnd_toEndOf="@+id/vShowMore"
+        app:layout_constraintStart_toEndOf="@+id/tvShowMore"
+        app:layout_constraintTop_toTopOf="@+id/tvShowMore" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupExpand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="ivArrow,tvShowMore,vShowMore" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

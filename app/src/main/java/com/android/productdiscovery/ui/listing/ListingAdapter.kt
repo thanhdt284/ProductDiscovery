@@ -94,10 +94,12 @@ class ListingAdapter(private var listItem: MutableList<Product> = mutableListOf(
 
         fun bind(item: Product) {
             itemView.apply {
-                Glide.with(context)
-                        .load(item.images[0].url)
-                        .apply(RequestOptions.placeholderOf(R.drawable.ic_item_placeholder))
-                        .into(ivItem)
+                if (item.images.isNotEmpty()) {
+                    Glide.with(context)
+                            .load(item.images[0].url)
+                            .apply(RequestOptions.placeholderOf(R.drawable.ic_item_placeholder))
+                            .into(ivItem)
+                }
 
                 tvItemName.text = item.name
                 val sellingStatus = SellingStatus.from(item.status.sale)

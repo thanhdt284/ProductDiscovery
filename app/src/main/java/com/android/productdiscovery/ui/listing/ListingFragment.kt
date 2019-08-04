@@ -16,6 +16,7 @@ import com.android.productdiscovery.utils.extension.hideKeyboard
 import com.android.productdiscovery.utils.extension.obtainViewModel
 import com.android.productdiscovery.utils.extension.showToast
 import kotlinx.android.synthetic.main.fragment_listing.*
+import kotlinx.android.synthetic.main.including_error_layout.*
 
 /**
  * @author ThanhDT
@@ -29,11 +30,7 @@ class ListingFragment : BaseFragment() {
 
     private var isLoadMore = false
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_listing, container, false)
     }
 
@@ -44,13 +41,18 @@ class ListingFragment : BaseFragment() {
 
         viewModel = obtainViewModel(ListingViewModel::class.java).apply {
             errorMsg.observe(this@ListingFragment, Observer {
-                showToast(it)
-
                 hideProgress()
 
                 if (isLoadMore) {
                     listingAdapter?.removeLoadingView()
                     isLoadMore = false
+                }
+
+                if (listingAdapter?.itemCount == 0) {
+                    groupError.visibility = View.VISIBLE
+                    tvError.text = it
+                } else {
+                    showToast(it)
                 }
             })
 
@@ -78,23 +80,30 @@ class ListingFragment : BaseFragment() {
         initProductList()
         initSearchListener()
 
+        btnTryAgain.setOnClickListener { performSearch() }
         btnBack.setOnClickListener { requireActivity().onBackPressed() }
     }
 
     private fun initSearchListener() {
         edtSearch.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                if (edtSearch.text.isNotBlank()) {
-                    hideKeyboard()
-                    viewModel.searchProduct(edtSearch.text.toString(), 1)
-                } else {
-                    showToast(R.string.input_name_product_code_to_search)
-                }
+                performSearch()
 
                 return@setOnEditorActionListener true
             }
 
             false
+        }
+    }
+
+    private fun performSearch() {
+        if (edtSearch.text.isNotBlank()) {
+            hideKeyboard()
+            viewModel.searchProduct(edtSearch.text.toString(), 1)
+            groupError.visibility = View.GONE
+            edtSearch.clearFocus()
+        } else {
+            showToast(R.string.input_name_product_code_to_search)
         }
     }
 
@@ -113,7 +122,7 @@ class ListingFragment : BaseFragment() {
                         recyclerView.adapter?.let {
                             val totalItemCount = it.itemCount
                             val lastItemIndex =
-                                (recyclerView.layoutManager as LinearLayoutManager).findLastVisibleItemPosition()
+                                    (recyclerView.layoutManager as LinearLayoutManager).findLastVisibleItemPosition()
                             if (lastItemIndex > totalItemCount - 8 && !isLoadMore) {
                                 isLoadMore = true
                                 listingAdapter?.addLoadingView()

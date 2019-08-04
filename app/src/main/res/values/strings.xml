@@ -9,11 +9,16 @@
     <string name="technical_spec">Thông số kỹ thuật</string>
     <string name="price_comparison">So sánh giá</string>
     <string name="same_type_product">Sản phẩm cùng loại</string>
-    <string name="connection_fail_toast">Không có kết nối mạng, Vui lòng thử lại</string>
+    <string name="connection_fail_toast">Không có kết nối mạng</string>
     <string name="input_name_product_code_to_search">Nhập tên, mã sản phẩm để tìm kiếm</string>
     <string name="stop_selling">Ngừng kinh doanh</string>
-    <string name="out_of_stock">Tạm hết</string>
+    <string name="out_of_stock">Tạm hết hàng</string>
     <string name="sample">Hàng trưng bày</string>
     <string name="invalid_sku">Mã sản phẩm không tồn tại</string>
+    <string name="available_product">Còn hàng</string>
+    <string name="display_more">Hiển thị nhiều hơn</string>
+    <string name="collapse">Thu gọn</string>
+    <string name="no_information">Không có thông tin</string>
+    <string name="try_again">Thử lại</string>
 
 </resources>

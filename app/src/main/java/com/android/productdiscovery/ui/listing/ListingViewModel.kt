@@ -29,6 +29,7 @@ class ListingViewModel : BaseViewModel(), AppComponent.Injectable {
 
     val firstPageData = SingleLiveData<List<Product>>()
     val pageData = SingleLiveData<List<Product>>()
+    val showConnectionOff = SingleLiveData<Boolean>()
 
     override fun inject(appComponent: AppComponent) {
         appComponent.inject(this)
@@ -76,6 +77,8 @@ class ListingViewModel : BaseViewModel(), AppComponent.Injectable {
                                     loadingStatus.postValue(false)
                             }
                     ))
+        } else {
+            errorMsg.postValue(application.getString(R.string.connection_fail_toast))
         }
     }
 }
