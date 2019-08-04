@@ -44,10 +44,10 @@ class SingleLiveData<T> : LiveData<T>() {
         super.postValue(value)
     }
 
-    fun fireValue(@Nullable value: T?) {
-        mPending.set(true)
-        super.postValue(value)
-    }
+//    fun fireValue(@Nullable value: T?) {
+//        mPending.set(true)
+//        super.postValue(value)
+//    }
 
     /**
      * Used for cases where T is Void, to make calls cleaner.

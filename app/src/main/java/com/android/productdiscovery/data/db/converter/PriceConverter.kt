@@ -1,10 +1,8 @@
 package com.android.productdiscovery.data.db.converter
 
 import androidx.room.TypeConverter
-import com.android.productdiscovery.domain.remote.pojo.response.Image
 import com.android.productdiscovery.domain.remote.pojo.response.Price
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 
 /**
  * @author ThanhDT

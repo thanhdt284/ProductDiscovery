@@ -9,8 +9,6 @@ import com.android.productdiscovery.domain.repository.RepositoryModule
 import com.android.productdiscovery.ui.detail.DetailViewModel
 import com.android.productdiscovery.ui.listing.ListingViewModel
 import dagger.Component
-import java.util.logging.LogManager
-import javax.inject.Named
 import javax.inject.Singleton
 
 /**

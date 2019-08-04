@@ -11,7 +11,7 @@ import io.reactivex.disposables.Disposable
  */
 open class BaseViewModel : ViewModel() {
 
-    val disposables = CompositeDisposable()
+    private val disposables = CompositeDisposable()
     val loadingStatus = SingleLiveData<Boolean>()
     val errorMsg = SingleLiveData<String>()
     val taskCompleted = SingleLiveData<Boolean>()

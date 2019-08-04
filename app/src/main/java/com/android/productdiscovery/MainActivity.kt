@@ -1,15 +1,14 @@
 package com.android.productdiscovery
 
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.TypedValue
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.android.productdiscovery.utils.DisplayUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    var isShowing = false
+    private var isShowing = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         btnShow.setOnClickListener {
             if (isShowing) {
                 val params = container.layoutParams
-                params.height = dpToPx(this, 200f)
+                params.height = DisplayUtils.dpToPx(this, 200f)
                 container.layoutParams = params
             } else {
                 val params = container.layoutParams
@@ -28,9 +27,5 @@ class MainActivity : AppCompatActivity() {
 
             isShowing = !isShowing
         }
-    }
-
-    fun dpToPx(context: Context, dp: Float): Int {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.resources.displayMetrics).toInt()
     }
 }

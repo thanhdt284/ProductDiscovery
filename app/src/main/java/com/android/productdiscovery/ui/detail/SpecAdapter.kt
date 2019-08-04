@@ -16,11 +16,6 @@ import kotlinx.android.synthetic.main.item_spec_layout.view.*
 class SpecAdapter(private var listItem: List<AttributeGroup> = mutableListOf()) :
         RecyclerView.Adapter<SpecAdapter.AttributeGroupVH>() {
 
-    fun setData(list: List<AttributeGroup>) {
-        listItem = list
-        notifyDataSetChanged()
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AttributeGroupVH {
         val inflater = LayoutInflater.from(parent.context)
         return AttributeGroupVH(inflater.inflate(R.layout.item_spec_layout, parent, false))

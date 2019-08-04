@@ -11,15 +11,15 @@ import com.android.productdiscovery.utils.extension.hideKeyboard
 @SuppressLint("Registered")
 abstract class BaseActivity : AppCompatActivity() {
 
-    override fun onResume() {
-        super.onResume()
+//    override fun onResume() {
+//        super.onResume()
 //        EventBus.getDefault().register(this)
-    }
+//    }
 
-    override fun onPause() {
-        super.onPause()
+//    override fun onPause() {
+//        super.onPause()
 //        EventBus.getDefault().unregister(this)
-    }
+//    }
 
 //    override fun onSupportNavigateUp(): Boolean {
 //        hideKeyboard()

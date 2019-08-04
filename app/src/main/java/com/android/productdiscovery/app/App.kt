@@ -38,7 +38,7 @@ class App : MultiDexApplication() {
         LeakCanary.install(this)
     }
 
-    fun initDependency() {
+    private fun initDependency() {
         Timber.e("App initDependency")
         appComponent = DaggerAppComponent.builder()
                 .appModule(AppModule(this))

@@ -24,12 +24,11 @@ class ListingViewModel : BaseViewModel(), AppComponent.Injectable {
     @Inject
     lateinit var apiService: ApiService
 
-    var nextPage = 1
-    var currentKey = ""
+    private var nextPage = 1
+    private var currentKey = ""
 
     val firstPageData = SingleLiveData<List<Product>>()
     val pageData = SingleLiveData<List<Product>>()
-    val showConnectionOff = SingleLiveData<Boolean>()
 
     override fun inject(appComponent: AppComponent) {
         appComponent.inject(this)
